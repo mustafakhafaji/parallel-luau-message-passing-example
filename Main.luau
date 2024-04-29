@@ -1,4 +1,5 @@
 local ReplicatedStorage = game:GetService('ReplicatedStorage')
+local StarterPlayer = game:GetService('StarterPlayer')
 
 local parentActor = script:GetActor()
 
@@ -8,9 +9,9 @@ childScript.Parent = childActor
 childActor.Parent = script
 
 task.defer(function()
-	childActor:SendMessage('sendToChild', parentActor)
+	childActor:SendMessage('sendToChild', {3, 12})
 end)
 
-parentActor:BindToMessageParallel('sendToParent', function(data)
+StarterPlayer.StarterPlayerScripts.Event.Event:Connect(function(data)
 	print(data)
 end)
