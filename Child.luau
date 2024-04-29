@@ -1,8 +1,10 @@
+local StarterPlayer = game:GetService('StarterPlayer')
+
 local actor = script:GetActor()
 
-function sendMessageBack(parentActor: Actor)
-	print('Child received')
-	parentActor:SendMessage('sendToParent', {5, 10})
+function sendMessageBack(data: {})
+	print(`{data}`)
+	StarterPlayer.StarterPlayerScripts.Event:Fire({5, 10})
 end
 
 actor:BindToMessageParallel('sendToChild', sendMessageBack)
