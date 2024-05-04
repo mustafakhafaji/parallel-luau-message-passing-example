@@ -1,8 +1,6 @@
 local ReplicatedStorage = game:GetService('ReplicatedStorage')
 local StarterPlayer = game:GetService('StarterPlayer')
 
-local parentActor = script:GetActor()
-
 local childActor = Instance.new('Actor')
 local childScript = ReplicatedStorage.Child:Clone()
 childScript.Parent = childActor
